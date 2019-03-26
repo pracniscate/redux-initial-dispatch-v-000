@@ -1,6 +1,8 @@
-let state = {counter: 0};
+// start undefined
+let state;
 
-function changeState(state, action){
+// when passing a state of undefined, assign that value to initial state
+function changeState(state = { count: 0 }, action){
     switch (action.type) {
       case 'INCREASE_COUNT':
         return {count: state.count + 1}
@@ -17,3 +19,6 @@ function dispatch(action){
 function render(){
     document.setInnerHtml = state.counter
 }
+
+// start at 0
+dispatch({ type: '@@INIT' })
